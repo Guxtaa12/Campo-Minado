@@ -1,0 +1,73 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+}
+
+.info-jogo {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.grade {
+    display: grid;
+    /* grid-template-columns será definido pelo JS */
+    /* grid-template-rows será definido pelo JS */
+    gap: 1px; /* Espaço fino entre as células */
+    background-color: #999; /* Cor da borda da grade */
+    border: 5px solid #999;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+}
+
+.celula {
+    width: 30px;
+    height: 30px;
+    background-color: #bdbdbd; /* Cor da célula escondida */
+    border: 1px solid #999; /* Borda leve */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none; /* Impede a seleção de texto */
+}
+
+.celula:hover {
+    background-color: #ccc;
+}
+
+.celula.revelada {
+    background-color: #eee; /* Cor da célula revelada */
+    cursor: default;
+    border: 1px solid #ccc;
+}
+
+.celula.revelada:hover {
+    background-color: #eee; /* Sem hover quando revelada */
+}
+
+.celula.mina {
+    background-color: red;
+    color: black;
+}
+
+.celula.bandeira::before {
+    content: "🚩"; /* Emoji de bandeira */
+    font-size: 18px;
+}
+
+/* Estilos para números (opcional, pode usar cores diferentes) */
+.celula[data-minas="1"] { color: blue; }
+.celula[data-minas="2"] { color: green; }
+.celula[data-minas="3"] { color: red; }
+.celula[data-minas="4"] { color: purple; }
+.celula[data-minas="5"] { color: maroon; }
+.celula[data-minas="6"] { color: turquoise; }
+.celula[data-minas="7"] { color: black; }
+.celula[data-minas="8"] { color: gray; }
